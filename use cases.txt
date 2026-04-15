@@ -1,0 +1,35 @@
+1. The Rendering Gap Audit (At Scale)
+You already have the single-page script I gave you. But the real enterprise use case is scaling it.
+
+The Execution: You feed Puppeteer a CSV file containing 50,000 URLs from a client's e-commerce site.
+
+The Action: Puppeteer opens every single link, compares the raw HTML to the rendered DOM, and looks for missing H1s, missing canonical tags, and missing product prices.
+
+The Result: You deliver a spreadsheet showing the exact 4,321 pages that are invisible to Googlebot because the JavaScript framework is broken. This is a $5,000 audit you generate while you sleep.
+
+2. Automated Rich Snippet & SERP Verification
+Clients pay for visibility, not just code. You need to prove your JSON-LD actually worked.
+
+The Execution: You program Puppeteer to literally open https://www.google.com/search?q=Google.com, type in the target keyword, and scrape the actual Search Engine Results Page (SERP).
+
+The Action: Because Puppeteer is a real browser, it triggers the exact layout Google shows humans. You extract the exact pixels where your client's star ratings, FAQs, or product prices appear.
+
+The Result: You bypass expensive rank-tracking software and build your own proprietary tracking engine that proves your Tier 1 schema is dominating the visual real estate.
+
+3. Dynamic Tag Overwrite Detection
+Modern React and Angular sites are notorious for destroying their own SEO after the page loads.
+
+The Execution: A developer hardcodes a correct <link rel="canonical"> in the source code. But when the JavaScript fires 3 seconds later, a broken router script accidentally overwrites the canonical tag or injects a noindex tag.
+
+The Action: Puppeteer waits for the network to idle, then scrapes the <head> of the DOM.
+
+The Result: You catch rogue JavaScript modifying critical SEO directives mid-air—something standard crawlers like Screaming Frog often miss unless specifically configured.
+
+4. Headless Core Web Vitals (Lighthouse Automation)
+Google penalizes sites if their JavaScript execution time is too long (Total Blocking Time).
+
+The Execution: Puppeteer has a library that directly integrates with Google Lighthouse.
+
+The Action: You write a script that loops through 50 different page templates on a client's site, throttling the CPU to simulate a cheap 3G mobile phone.
+
+The Result: Instead of running Lighthouse manually one by one, your script outputs a massive JSON file pinpointing the exact JavaScript bundles that are causing the site to fail Google's Core Web Vitals assessment.
