@@ -18,6 +18,7 @@ const urls = [
 async function scrapeMetaData(url, page) {
   try {
     await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+    await new Promise(resolve => setTimeout(resolve, 3000));
     
     return await page.evaluate(() => ({
       url: window.location.href,
@@ -26,8 +27,10 @@ async function scrapeMetaData(url, page) {
         ?.getAttribute('content') || 'Missing',
       h1: document.querySelector('h1')?.innerText || 'Missing',
     }));
-  } catch (error) {
+ } catch (error) {
+    console.log(`Error on ${url}: ${error.message}`);
     return {
+
       url: url,
       title: 'Error',
       description: 'Error',
@@ -54,6 +57,7 @@ async function main() {
     console.log(`Scraping: ${url}`);
     const data = await scrapeMetaData(url, page);
     results.push(data);
+    console.log(`Done: ${data.title}`);
   }
 
   await browser.close();
