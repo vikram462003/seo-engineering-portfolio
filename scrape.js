@@ -32,6 +32,8 @@ async function scrapeMetaData(url, page) {
       description: document.querySelector('meta[name="description"]')
         ?.getAttribute('content') || 'Missing',
       h1: document.querySelector('h1')?.innerText || 'Missing',
+canonical: document.querySelector('link[rel="canonical"]')
+  ?.getAttribute('href') || 'Missing',
     }));
     
     return { ...data, statusCode };
