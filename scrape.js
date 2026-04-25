@@ -17,24 +17,33 @@ const urls = [
 
 async function scrapeMetaData(url, page) {
   try {
-    await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+    const response = await page.goto(url, { 
+      waitUntil: 'networkidle2', 
+      timeout: 30000 
+    });
+    
     await new Promise(resolve => setTimeout(resolve, 3000));
     
-    return await page.evaluate(() => ({
+    const statusCode = response ? response.status() : 'Unknown';
+    
+    const data = await page.evaluate(() => ({
       url: window.location.href,
       title: document.title || 'Missing',
       description: document.querySelector('meta[name="description"]')
         ?.getAttribute('content') || 'Missing',
       h1: document.querySelector('h1')?.innerText || 'Missing',
     }));
- } catch (error) {
+    
+    return { ...data, statusCode };
+    
+  } catch (error) {
     console.log(`Error on ${url}: ${error.message}`);
     return {
-
       url: url,
       title: 'Error',
       description: 'Error',
-      h1: error.message
+      h1: 'Error',
+      statusCode: error.message
     };
   }
 }
@@ -57,7 +66,7 @@ async function main() {
     console.log(`Scraping: ${url}`);
     const data = await scrapeMetaData(url, page);
     results.push(data);
-    console.log(`Done: ${data.title}`);
+    console.log(`Done: ${data.statusCode} - ${data.title}`);
   }
 
   await browser.close();
