@@ -33,9 +33,32 @@ async function scrapeMetaData(url, page) {
         ?.getAttribute('content') || 'Missing',
       h1: document.querySelector('h1')?.innerText || 'Missing',
       canonical: document.querySelector('link[rel="canonical"]')
-  ?.getAttribute('href') || 'Missing',
+        ?.getAttribute('href') || 'Missing',
       robots: document.querySelector('meta[name="robots"]')
-  ?.getAttribute('content') || 'Missing',
+        ?.getAttribute('content') || 'Missing',
+      schemaCount: document.querySelectorAll('script[type="application/ld+json"]').length,
+      schema: (() => {
+        const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+        if (!scripts.length) return 'Missing';
+        
+        const types = [];
+        scripts.forEach(script => {
+          try {
+            const data = JSON.parse(script.innerText);
+            if (Array.isArray(data)) {
+              data.forEach(item => {
+                if (item['@type']) types.push(item['@type']);
+              });
+            } else {
+              if (data['@type']) types.push(data['@type']);
+            }
+          } catch {
+            types.push('Parse Error');
+          }
+        });
+        
+        return types.length ? types.join(' | ') : 'Missing';
+      })(),
     }));
     
     return { ...data, statusCode };
@@ -47,6 +70,10 @@ async function scrapeMetaData(url, page) {
       title: 'Error',
       description: 'Error',
       h1: 'Error',
+      canonical: 'Error',
+      robots: 'Error',
+      schemaCount: 0,
+      schema: 'Error',
       statusCode: error.message
     };
   }
