@@ -32,8 +32,10 @@ async function scrapeMetaData(url, page) {
       description: document.querySelector('meta[name="description"]')
         ?.getAttribute('content') || 'Missing',
       h1: document.querySelector('h1')?.innerText || 'Missing',
-canonical: document.querySelector('link[rel="canonical"]')
+      canonical: document.querySelector('link[rel="canonical"]')
   ?.getAttribute('href') || 'Missing',
+      robots: document.querySelector('meta[name="robots"]')
+  ?.getAttribute('content') || 'Missing',
     }));
     
     return { ...data, statusCode };

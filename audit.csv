@@ -1,11 +1,11 @@
-"url","title","description","h1","canonical","statusCode"
-"https://www.flipkart.com/","Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!","Missing","Flipkart: India's Ultimate One-Stop Online Shopping Destination","https://www.flipkart.com",200
-"https://www.flipkart.com/mobile-phones-store","Mobile Phones Online at Best Prices in India","Missing","Missing","https://www.flipkart.com/mobile-phones-store",200
-"https://www.flipkart.com/laptops","Online Shopping India Mobile, Cameras, Lifestyle & more Online @ Flipkart.com","Missing","Missing","Missing",404
-"https://www.flipkart.com/television-store","Television - Latest LED TV, Smart TV & 4K TVs Online - Flipkart","Missing","Missing","https://www.flipkart.com/television-store",200
-"https://www.flipkart.com/camera-clp-store","Camera | Digital Cameras at an discount of Upto 80% | Flipkart","Missing","Missing","https://www.flipkart.com/camera-clp-store",200
-"https://www.flipkart.com/clothing/pr?sid=2oq","Clothing - Buy Clothing Online at Best Prices In India | Flipkart.com","Missing","Clothing And Accessories","Missing",200
-"https://www.flipkart.com/footwear/pr?sid=osp","Footwear - Upto 50% to 80% OFF on Footwear Online at Best Prices in India | Flipkart.com","Missing","Footwear","https://www.flipkart.com/footwear/pr?sid=osp",200
-"https://www.flipkart.com/furniture-store","Wooden Furniture Online at Best Prices In India","Missing","Missing","https://www.flipkart.com/furniture-store",200
-"https://www.flipkart.com/appliances","Online Shopping India Mobile, Cameras, Lifestyle & more Online @ Flipkart.com","Missing","Missing","Missing",404
-"https://www.flipkart.com/sports","Online Shopping India Mobile, Cameras, Lifestyle & more Online @ Flipkart.com","Missing","Missing","Missing",404
+"url","title","description","h1","canonical","robots","statusCode"
+"https://www.flipkart.com/","Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!","Missing","Flipkart: India's Ultimate One-Stop Online Shopping Destination","https://www.flipkart.com","Missing",200
+"https://www.flipkart.com/mobile-phones-store","Mobile Phones Online at Best Prices in India","Missing","Missing","https://www.flipkart.com/mobile-phones-store","Missing",200
+"https://www.flipkart.com/laptops","Online Shopping India Mobile, Cameras, Lifestyle & more Online @ Flipkart.com","Missing","Missing","Missing","Missing",404
+"https://www.flipkart.com/television-store","Television - Latest LED TV, Smart TV & 4K TVs Online - Flipkart","Missing","Missing","https://www.flipkart.com/television-store","Missing",200
+"https://www.flipkart.com/camera-clp-store","Camera | Digital Cameras at an discount of Upto 80% | Flipkart","Missing","Missing","https://www.flipkart.com/camera-clp-store","Missing",200
+"https://www.flipkart.com/clothing/pr?sid=2oq","Clothing - Buy Clothing Online at Best Prices In India | Flipkart.com","Missing","Clothing And Accessories","Missing","noindex",200
+"https://www.flipkart.com/footwear/pr?sid=osp","Footwear - Upto 50% to 80% OFF on Footwear Online at Best Prices in India | Flipkart.com","Missing","Footwear","https://www.flipkart.com/footwear/pr?sid=osp","Missing",200
+"https://www.flipkart.com/furniture-store","Wooden Furniture Online at Best Prices In India","Missing","Missing","https://www.flipkart.com/furniture-store","Missing",200
+"https://www.flipkart.com/appliances","Online Shopping India Mobile, Cameras, Lifestyle & more Online @ Flipkart.com","Missing","Missing","Missing","Missing",404
+"https://www.flipkart.com/sports","Online Shopping India Mobile, Cameras, Lifestyle & more Online @ Flipkart.com","Missing","Missing","Missing","Missing",404
