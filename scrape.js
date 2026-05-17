@@ -1,19 +1,8 @@
 const puppeteer = require('puppeteer');
 const { Parser } = require('json2csv');
 const fs = require('fs');
-
-const urls = [
-  'https://www.flipkart.com',
-  'https://www.flipkart.com/mobiles',
-  'https://www.flipkart.com/laptops',
-  'https://www.flipkart.com/televisions',
-  'https://www.flipkart.com/cameras',
-  'https://www.flipkart.com/clothing',
-  'https://www.flipkart.com/footwear',
-  'https://www.flipkart.com/furniture',
-  'https://www.flipkart.com/appliances',
-  'https://www.flipkart.com/sports'
-];
+const axios = require('axios');
+const xml2js = require('xml2js');
 
 async function scrapeMetaData(url, page) {
   try {
@@ -59,6 +48,8 @@ async function scrapeMetaData(url, page) {
         
         return types.length ? types.join(' | ') : 'Missing';
       })(),
+      totalImages: document.querySelectorAll('img').length,
+      missingAlt: document.querySelectorAll('img:not([alt]), img[alt=""]').length,
     }));
     
     return { ...data, statusCode };
@@ -74,6 +65,8 @@ async function scrapeMetaData(url, page) {
       robots: 'Error',
       schemaCount: 0,
       schema: 'Error',
+      totalImages: 0,
+      missingAlt: 0,
       statusCode: error.message
     };
   }
@@ -90,6 +83,19 @@ async function main() {
   const page = await browser.newPage();
   
   await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
+  
+  const urls = [
+    'https://www.flipkart.com',
+    'https://www.flipkart.com/mobiles',
+    'https://www.flipkart.com/laptops',
+    'https://www.flipkart.com/televisions',
+    'https://www.flipkart.com/cameras',
+    'https://www.flipkart.com/clothing',
+    'https://www.flipkart.com/footwear',
+    'https://www.flipkart.com/furniture',
+    'https://www.flipkart.com/appliances',
+    'https://www.flipkart.com/sports'
+  ];
   
   const results = [];
 
